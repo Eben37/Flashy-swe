@@ -28,7 +28,7 @@ const App = () => {
   return(
     <NavigationContainer>
       <Stack.Navigator
-      initialRouteName="Homepage"
+      initialRouteName="Onboarding2"
         >
         <Stack.Screen
               name="Homepage"
