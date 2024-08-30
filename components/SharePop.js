@@ -1,10 +1,13 @@
 import * as React from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
-import { FontFamily, FontSize, Color, Padding, Border } from "../GlobalStyles";
+import { View, Image, StyleSheet, Text, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Border, FontFamily, Color, FontSize, Padding } from "../GlobalStyles";
 
 const SharePop = ({ onClose }) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.sharepop}>
+    <View style={[styles.sharepop, styles.sharepopFlexBox]}>
       <View style={styles.navParent}>
         <View style={[styles.nav, styles.navFlexBox]}>
           <View style={styles.logoParentFlexBox}>
@@ -15,14 +18,20 @@ const SharePop = ({ onClose }) => {
             />
             <Text style={[styles.lashy, styles.lashyTypo]}>LASHY</Text>
           </View>
-          <Image
-            style={styles.closebtnIcon}
-            resizeMode="cover"
-            source={require("../assets/closebtn.png")}
-          />
+          <Pressable
+            style={styles.closebtn}
+            onPress={() => navigation.goBack()}
+          >
+            <Image
+              style={styles.icon}
+              close="close"
+              resizeMode="cover"
+              source={require("../assets/closebtn.png")}
+            />
+          </Pressable>
         </View>
-        <View style={[styles.shareThisCardWrapper, styles.shareCardLayout]}>
-          <Text style={[styles.shareThisCard, styles.inviteTypo]}>
+        <View style={[styles.shareThisCardWrapper, styles.navFlexBox]}>
+          <Text style={[styles.shareThisCard, styles.lashyTypo]}>
             share this card
           </Text>
         </View>
@@ -38,9 +47,12 @@ const SharePop = ({ onClose }) => {
                 invite by others by their email
               </Text>
             </View>
-            <View style={[styles.inviteButton, styles.logoParentFlexBox]}>
-              <Text style={[styles.invite, styles.inviteTypo]}>Invite</Text>
-            </View>
+            <Pressable
+              style={[styles.inviteButton, styles.logoParentFlexBox]}
+              inv="Invite"
+            >
+              <Text style={styles.invite}>Invite</Text>
+            </Pressable>
           </View>
         </View>
       </View>
@@ -49,22 +61,21 @@ const SharePop = ({ onClose }) => {
 };
 
 const styles = StyleSheet.create({
+  sharepopFlexBox: {
+    justifyContent: "center",
+    borderRadius: Border.br_3xs,
+  },
   navFlexBox: {
     justifyContent: "space-between",
     flexDirection: "row",
+    width: 278,
+    alignItems: "center",
   },
   lashyTypo: {
     display: "flex",
     fontFamily: FontFamily.interLight,
     fontWeight: "300",
-  },
-  shareCardLayout: {
-    width: 103,
     alignItems: "center",
-  },
-  inviteTypo: {
-    textAlign: "center",
-    fontSize: FontSize.size_sm,
   },
   logoParentFlexBox: {
     flexDirection: "row",
@@ -84,31 +95,31 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.interLight,
     fontWeight: "300",
     height: 23,
-    alignItems: "center",
   },
-  closebtnIcon: {
+  icon: {
+    width: "100%",
+    height: "100%",
+  },
+  closebtn: {
     width: 20,
     height: 20,
   },
   nav: {
-    width: 278,
     height: 25,
-    alignItems: "center",
   },
   shareThisCard: {
-    width: 103,
-    alignItems: "center",
-    height: 20,
+    fontSize: FontSize.size_5xl,
+    textAlign: "center",
+    color: Color.color,
     display: "flex",
     fontFamily: FontFamily.interLight,
     fontWeight: "300",
-    color: Color.color,
+    height: 25,
+    width: 278,
     justifyContent: "center",
   },
   shareThisCardWrapper: {
-    marginTop: 22,
-    justifyContent: "space-between",
-    flexDirection: "row",
+    marginTop: 18,
   },
   typeYourEmail: {
     fontSize: FontSize.size_base,
@@ -118,7 +129,6 @@ const styles = StyleSheet.create({
     display: "flex",
     fontFamily: FontFamily.interLight,
     fontWeight: "300",
-    alignItems: "center",
   },
   emailtextbox: {
     backgroundColor: Color.colorGainsboro,
@@ -130,17 +140,20 @@ const styles = StyleSheet.create({
     paddingVertical: Padding.p_3xs,
     alignSelf: "stretch",
     borderRadius: Border.br_3xs,
+    flexDirection: "row",
   },
   invite: {
+    fontSize: 14,
     fontFamily: FontFamily.interRegular,
     color: Color.bLACK,
+    textAlign: "center",
   },
   inviteButton: {
     backgroundColor: Color.gREEN,
     width: 67,
     height: 27,
     padding: Padding.p_2xs,
-    marginTop: 7,
+    marginTop: 30,
     justifyContent: "center",
     borderRadius: Border.br_3xs,
   },
@@ -151,7 +164,7 @@ const styles = StyleSheet.create({
   },
   emailtextboxParent: {
     alignSelf: "stretch",
-    marginTop: 22,
+    marginTop: 18,
   },
   navParent: {
     width: 304,
@@ -160,14 +173,12 @@ const styles = StyleSheet.create({
   },
   sharepop: {
     backgroundColor: Color.colorBlack,
-    paddingHorizontal: 20,
+    paddingHorizontal: Padding.p_xl,
     paddingTop: 33,
     paddingBottom: 35,
     maxWidth: "100%",
     maxHeight: "100%",
-    justifyContent: "center",
     alignItems: "center",
-    borderRadius: Border.br_3xs,
   },
 });
 

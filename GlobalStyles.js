@@ -16,10 +16,11 @@ export const FontSize = {
   size_base: 16,
   size_21xl: 40,
   size_45xl: 64,
+  size_mini: 15,
+  size_lg: 18,
   size_16xl: 35,
   size_13xl: 32,
-  size_lg: 18,
-  size_sm: 14,
+  size_17xl: 36,
 };
 /* Colors */
 export const Color = {
@@ -31,6 +32,7 @@ export const Color = {
   colorWhitesmoke: "#f5f5f5",
   colorDarkslategray: "#33443c",
   color: "#bfbfbf",
+  colorSilver_200: "#b6b6b6",
   colorSilver_100: "rgba(191, 191, 191, 0.5)",
   colorGainsboro: "#d9d9d9",
 };
@@ -52,9 +54,12 @@ export const Padding = {
   p_33xl: 52,
   p_6xs: 7,
   p_8xl: 27,
+  p_8xs: 5,
   p_lg: 18,
   p_2xl: 21,
-  p_8xs: 5,
+  p_xl: 20,
+  p_7xl: 26,
+  p_7xs: 6,
 };
 /* border radiuses */
 export const Border = {
@@ -62,6 +67,6 @@ export const Border = {
   br_xl: 20,
   br_mini: 15,
   br_31xl: 50,
-  br_11xl: 30,
   br_8xs: 5,
+  br_11xl: 30,
 };
