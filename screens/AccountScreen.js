@@ -13,7 +13,7 @@ const AccountScreen = ({ route }) => {
 
   const handleLogout = async () => {
     try {
-        await axios.get('http://100.66.37.131:5000/logout');
+        await axios.get(`${process.env.API_BACKEND}/logout`);
         navigation.navigate('HomeScreen');
     } catch (error) {
       setErrorMessage('Logout failed. Please try again.');

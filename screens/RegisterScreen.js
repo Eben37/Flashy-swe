@@ -15,12 +15,13 @@ const RegisterScreen = () => {
 
     const handleRegister = async () => {
         try {
-            const response = await axios.post('http://100.66.37.131:5000/register', {
+            const response = await axios.post(`${process.env.API_BACKEND}/register`, {
                 username,
                 email,
                 password
             });
-
+            
+            console.log("Response: ",response.data);
             navigation.navigate('LoginScreen');
 
             // clear input fields

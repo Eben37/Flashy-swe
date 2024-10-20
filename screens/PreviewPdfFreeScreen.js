@@ -56,7 +56,7 @@ const PreviewPdfFreeScreen = ({ route }) => {
     console.log(flashcardNumber);
   
     try {
-      const response = await axios.post('http://100.66.37.131:5000/process_free', {
+      const response = await axios.post(`${process.env.API_BACKEND}/process_free`, {
         pages: oneBasedPages,
         file_ext: fileType,  // Replace with actual file extension if needed
         flashcard_number: flashcardNumber,

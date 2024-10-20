@@ -19,7 +19,7 @@ const SelectCourseScreen = ({ route }) => {
         setSelectedCourse(course);
 
         try {
-            const response = await axios.post('http://100.66.37.131:5000/flashcards', {
+            const response = await axios.post(`${process.env.API_BACKEND}/flashcards`, {
                 selectedCourse: course,
                 username
             });
@@ -47,7 +47,7 @@ const SelectCourseScreen = ({ route }) => {
 
     const handleViewAccount = async () => {
         try {
-            const response = await axios.post('http://100.66.37.131:5000/userAccount', {
+            const response = await axios.post(`${process.env.API_BACKEND}/userAccount`, {
                 username
             });
             const { email, plan } = response.data;

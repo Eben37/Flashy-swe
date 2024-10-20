@@ -74,7 +74,7 @@ const PreviewTextScreen = ({ route }) => {
     console.log(data)
   
       try {
-        const response = await axios.post('http://100.66.37.131:5000/process', data, {
+        const response = await axios.post(`${process.env.API_BACKEND}/process`, data, {
           headers: {
               'Content-Type': 'application/json',
           },

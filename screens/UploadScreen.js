@@ -65,7 +65,7 @@ const UploadScreen = ({ route }) => {
     formData.append('username', username);
 
     try {
-      const response = await axios.post('http://100.66.37.131:5000/preview_upload', formData, {
+      const response = await axios.post(`${process.env.API_BACKEND}/preview_upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -96,7 +96,7 @@ const UploadScreen = ({ route }) => {
 
 const handleViewFlashcards = async () => {
   try {
-      const response = await axios.post('http://100.66.37.131:5000/courses', {
+      const response = await axios.post(`${process.env.API_BACKEND}/courses`, {
           username
       });
       const { courses } = response.data;
@@ -110,7 +110,7 @@ const handleViewFlashcards = async () => {
 
   const handleViewAccount = async () => {
     try {
-        const response = await axios.post('http://100.66.37.131:5000/userAccount', {
+        const response = await axios.post(`${process.env.API_BACKEND}/userAccount`, {
             username
         });
         const { email, plan } = response.data;

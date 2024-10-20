@@ -60,7 +60,7 @@ const UploadFreeScreen = () => {
         });
 
         try {
-            const response = await axios.post('http://100.66.37.131:5000/preview_free_upload', formData, {
+            const response = await axios.post(`${process.env.API_BACKEND}/preview_free_upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
