@@ -22,6 +22,17 @@
     },
     "web": {
       "favicon": "./assets/flashy-logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9020b7b3-5412-4d36-9aa0-4b3599c70749"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/9020b7b3-5412-4d36-9aa0-4b3599c70749"
     }
   }
 }
